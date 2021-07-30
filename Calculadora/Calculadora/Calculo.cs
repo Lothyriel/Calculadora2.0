@@ -7,33 +7,34 @@ namespace Calculadora
         private double NumeroUm;
         private double NumeroDois;
         private TipoOperacao operacao;
-
+        private double Resultado;
         Calculo(double NumeroUm, double NumeroDois, double resultado, TipoOperacao operacao)
         {
             this.operacao = operacao;
             this.NumeroUm = NumeroUm;
             this.NumeroDois = NumeroDois;
+            this.Resultado = resultado;
         }
 
         public override string ToString()
         {
-            return RealisarCalculo();
-        }
-
-        private string RealisarCalculo()
-        {
-            return
+            return $"{NumeroUm} {mostrarOperacao()} {NumeroDois} = {Resultado}"; 
 
 
         }
 
-        private class Operacao
+        private string mostrarOperacao()
         {
-            TipoOperacao Operacao;
-
-            MetodoOperacao
-
-         
+            if (operacao == TipoOperacao.adicao)
+                return "+";
+            if (operacao == TipoOperacao.subtracao)
+                return "-";
+            if (operacao == TipoOperacao.multiplicacao)
+                return "*";
+            if (operacao == TipoOperacao.divisao)
+                return "/";
+            else
+                return null;
 
         }
 
