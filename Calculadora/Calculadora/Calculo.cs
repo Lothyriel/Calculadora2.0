@@ -2,23 +2,19 @@
 {
     public class Calculo
     {
-        private double NumeroUm;
-        private double NumeroDois;
-        private TipoOperacao operacao;
-        private double resultado;
+
+        private string calculo;
+        public static string calculoInvalido = "Calculo inválido";
+
         public Calculo(double NumeroUm, double NumeroDois, double resultado, TipoOperacao operacao)
         {
-            this.operacao = operacao;
-            this.NumeroUm = NumeroUm;
-            this.NumeroDois = NumeroDois;
-            this.resultado = resultado;
+            calculo = $"{NumeroUm} {mostrarOperacao(operacao)} {NumeroDois} = {resultado}";
         }
-
         public override string ToString()
         {
-            return $"{NumeroUm} {mostrarOperacao()} {NumeroDois} = {resultado}";
+            return calculo;
         }
-        private string mostrarOperacao()
+        private string mostrarOperacao(TipoOperacao operacao)
         {
             if (operacao == TipoOperacao.adicao)
                 return "+";

@@ -7,16 +7,16 @@ namespace Calculadora
     {
         private delegate double MetodoOperacao(double num1, double num2);
         private List<Calculo> historico = new List<Calculo>();
-        public Calculo Calcular(string num1, string num2, string codOp)
+        public string Calcular(string num1, string num2, string codOp)
         {
             double numb1;
             double numb2;
 
-            if (!Double.TryParse(num1, out numb1) || Double.TryParse(num2, out numb2))
-                return null;
+            if (!Double.TryParse(num1, out numb1) || !Double.TryParse(num2, out numb2))
+                return Calculo.calculoInvalido;
 
             if (!Enum.TryParse(codOp, out TipoOperacao operador))
-                return null;
+                return Calculo.calculoInvalido;
 
             var operacao = GetOperacao(operador);
 
@@ -25,11 +25,11 @@ namespace Calculadora
             var calculo = new Calculo(numb1, numb2, resultado, operador);
 
             historico.Add(calculo);
-            return calculo;
+            return calculo.ToString();
         }
-        public string mostrarHistorico()
+        public string MostrarHistorico()
         {
-            return "";
+            return string.Join("\n", historico);
         }
         private double Calcular(double num1, double num2, MetodoOperacao op)
         {
@@ -56,7 +56,7 @@ namespace Calculadora
     }
     public enum TipoOperacao
     {
-        adicao, subtracao, multiplicacao, divisao
+        adicao = 1, subtracao, multiplicacao, divisao
     }
 }
 
