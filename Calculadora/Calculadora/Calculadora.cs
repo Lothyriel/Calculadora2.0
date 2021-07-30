@@ -8,28 +8,33 @@ namespace Calculadora
 {
     public class Calculadora
     {
-        private delegate Calculo Operacao(double num1, double num2);
+        private delegate Calculo MetodoOperacao(double num1, double num2);
         List<Calculo> historico = new List<Calculo>();
         public Calculadora()
         {
         }
 
-        private Calculo Calcular(string num1, string num2, int codOp)
+        public Calculo Calcular(string num1, string num2, string codOp)
         {
             return null;
         }
-        private Operacao GetOperacao(TipoOperacao op)
+        private MetodoOperacao GetOperacao(TipoOperacao op)
         {
             throw new NotImplementedException();
         }
-        private Calculo Calcular(double num1, double num2, Operacao op)
+        private Calculo Calcular(double num1, double num2, MetodoOperacao op)
         {
             return op(num1, num2);
         }
 
-        public enum TipoOperacao
-        {
-            adicao, subtracao, multiplicacao, divisao
-        }
+
+
     }
+
+    public enum TipoOperacao
+    {
+        adicao, subtracao, multiplicacao, divisao
+    }
+
+
 }
