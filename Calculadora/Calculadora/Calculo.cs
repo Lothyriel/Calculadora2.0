@@ -2,9 +2,9 @@
 {
     public class Calculo
     {
-
         private string calculo;
-        public static string calculoInvalido = "Calculo inválido";
+        public static string numeroInvalido = "Número inválido";
+        public static string operadorInvalido = "Operador inválido";
 
         public Calculo(double NumeroUm, double NumeroDois, double resultado, TipoOperacao operacao)
         {

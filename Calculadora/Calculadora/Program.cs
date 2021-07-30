@@ -4,10 +4,8 @@ namespace Calculadora
 {
     class Program
     {
-
-        static Calculadora calculadora = new Calculadora();
-
-        static void Main(string[] args)
+        private static Calculadora calculadora = new Calculadora();
+        private static void Main(string[] args)
         {
             while (true)
             {
@@ -49,6 +47,5 @@ namespace Calculadora
 
             Console.WriteLine(calculadora.Calcular(num1, num2, op));
         }
-
     }
 }
