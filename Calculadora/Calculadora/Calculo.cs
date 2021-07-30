@@ -1,28 +1,23 @@
-﻿using System;
-
-namespace Calculadora
+﻿namespace Calculadora
 {
     public class Calculo
     {
         private double NumeroUm;
         private double NumeroDois;
         private TipoOperacao operacao;
-        private double Resultado;
-        Calculo(double NumeroUm, double NumeroDois, double resultado, TipoOperacao operacao)
+        private double resultado;
+        public Calculo(double NumeroUm, double NumeroDois, double resultado, TipoOperacao operacao)
         {
             this.operacao = operacao;
             this.NumeroUm = NumeroUm;
             this.NumeroDois = NumeroDois;
-            this.Resultado = resultado;
+            this.resultado = resultado;
         }
 
         public override string ToString()
         {
-            return $"{NumeroUm} {mostrarOperacao()} {NumeroDois} = {Resultado}"; 
-
-
+            return $"{NumeroUm} {mostrarOperacao()} {NumeroDois} = {resultado}";
         }
-
         private string mostrarOperacao()
         {
             if (operacao == TipoOperacao.adicao)
@@ -35,9 +30,6 @@ namespace Calculadora
                 return "/";
             else
                 return null;
-
         }
-
     }
-
 }

@@ -1,22 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculadora
 {
     public class Calculadora
     {
         private delegate double MetodoOperacao(double num1, double num2);
-        List<Calculo> historico = new List<Calculo>();
-        public Calculadora()
-        {
-        }
-
+        private List<Calculo> historico = new List<Calculo>();
         public Calculo Calcular(string num1, string num2, string codOp)
         {
+            double numb1;
+            double numb2;
 
+            if (!Double.TryParse(num1, out numb1) || Double.TryParse(num2, out numb2))
+                return null;
+
+            if (!Enum.TryParse(codOp, out TipoOperacao operador))
+                return null;
+
+            var operacao = GetOperacao(operador);
+
+            var resultado = Calcular(numb1, numb2, operacao);
+
+            var calculo = new Calculo(numb1, numb2, resultado, operador);
+
+            historico.Add(calculo);
+            return calculo;
+        }
+        public string mostrarHistorico()
+        {
+            return "";
         }
         private double Calcular(double num1, double num2, MetodoOperacao op)
         {
