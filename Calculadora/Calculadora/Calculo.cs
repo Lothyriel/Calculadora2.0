@@ -8,14 +8,11 @@ namespace Calculadora
         private double NumeroDois;
         private TipoOperacao operacao;
 
-        Calculo(double NumeroUm, double NumeroDois, TipoOperacao operacao)
+        Calculo(double NumeroUm, double NumeroDois, double resultado, TipoOperacao operacao)
         {
             this.operacao = operacao;
             this.NumeroUm = NumeroUm;
             this.NumeroDois = NumeroDois;
-
-
-
         }
 
         public override string ToString()
